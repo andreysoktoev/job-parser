@@ -1,4 +1,5 @@
 import { fetch } from 'undici'
+import { sql } from '../db/connector.js'
 
 (async () => {
   const PAGES = 5
@@ -30,5 +31,6 @@ import { fetch } from 'undici'
     })
   }
 
-  console.table(result)
+  await sql`insert into jobs ${sql(result)} on conflict do nothing`
+  console.log('chotka')
 })()

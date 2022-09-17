@@ -1,6 +1,7 @@
 {
   "type": "module",
   "dependencies": {
+    "postgres": "latest",
     "undici": "latest"
   },
   "devDependencies": {
