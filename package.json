@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "dependencies": {
+    "undici": "latest"
+  },
+  "devDependencies": {
+    "eslint": "latest",
+    "nodemon": "latest"
+  }
+}
