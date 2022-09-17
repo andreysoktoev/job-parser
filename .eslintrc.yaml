@@ -3,20 +3,20 @@ parserOptions:
   sourceType: module
 rules:
   eol-last:
-    - error
+    - warn
     - never
   object-curly-spacing:
-    - error
+    - warn
     - always
     - arraysInObjects: true
   quotes:
-    - error
+    - warn
     - single
     - allowTemplateLiterals: true
       avoidEscape: true
   semi:
-    - error
+    - warn
     - never
   template-curly-spacing:
-    - error
+    - warn
     - never
