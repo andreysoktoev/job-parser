@@ -17,6 +17,7 @@ java
 laravel
 lua
 ml
+perl
 php
 python
 ruby
