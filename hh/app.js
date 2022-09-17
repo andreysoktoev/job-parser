@@ -1,5 +1,6 @@
 import { fetch } from 'undici'
 import { sql } from '../db/connector.js'
+import { exceptions } from './exceptions.js'
 
 (async () => {
   const PAGES = 5
@@ -10,10 +11,9 @@ import { sql } from '../db/connector.js'
     professional_role: '96',
     responses_count_enabled: true,
     search_field: 'name',
-    text: '(node.js or nodejs or node) and not senior',
+    text: `(junior or node.js or nodejs or node) and not (${exceptions.join(' or ')})`,
     vacancy_search_order: 'publication_time',
   })
-  url.search = params
   let result = []
 
   for (let i = 0; i < PAGES; i++) {
@@ -32,5 +32,5 @@ import { sql } from '../db/connector.js'
   }
 
   await sql`insert into jobs ${sql(result)} on conflict do nothing`
-  console.log('chotka')
+  console.log('чотка')
 })()
