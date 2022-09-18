@@ -11,7 +11,7 @@ import { exceptions } from './exceptions.js'
     professional_role: '96',
     responses_count_enabled: true,
     search_field: 'name',
-    text: `(junior or node.js or nodejs or node) and not (${exceptions.join(' or ')})`,
+    text: `(node.js or nodejs or node) and not (${exceptions.join(' or ')})`,
     vacancy_search_order: 'publication_time',
   })
   let result = []
