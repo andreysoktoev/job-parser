@@ -16,6 +16,8 @@ import { exceptions } from './exceptions.js'
   })
   let result = []
 
+  console.clear()
+
   for (let i = 0; i < PAGES; i++) {
     params.set('page', i)
     url.search = params
@@ -32,7 +34,15 @@ import { exceptions } from './exceptions.js'
     })
   }
 
-  await sql`insert into jobs ${sql(result)} on conflict do nothing`
-  console.log('чотка')
+  const vacancies = await sql`
+    insert into jobs ${sql(result)}
+    on conflict do nothing
+    returning added_at, employer, title, url, responses
+  `
+
+  vacancies.length > 0
+    ? console.table(vacancies)
+    : console.log('Новых вакансий нет\n')
+
   process.exit(0)
 })()

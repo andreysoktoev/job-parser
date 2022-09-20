@@ -7,9 +7,9 @@ cascade;
 create table jobs (
   id int unique,
   added_at timestamp default now(),
-  responses int,
-  url text,
-  title text,
   employer text,
+  title text,
+  url text,
+  responses int,
   unique (employer, title)
 );
