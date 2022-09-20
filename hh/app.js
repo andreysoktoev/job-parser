@@ -24,13 +24,15 @@ import { exceptions } from './exceptions.js'
     json.items.map(i => {
       if (i) result.push({
         id: i.id,
-        employer: i.employer.name,
+        responses: i.counters.responses,
+        url: i.alternate_url,
         title: i.name,
-        responses: i.counters.responses
+        employer: i.employer.name,
       })
     })
   }
 
   await sql`insert into jobs ${sql(result)} on conflict do nothing`
   console.log('чотка')
+  process.exit(0)
 })()
